@@ -9,10 +9,14 @@
 import UIKit
 import CoreML
 import Vision
+import Alamofire
+import SwiftyJSON
 
 enum ImageClassificationError: Error {
-    case getUIImage
-    case uIImageToCIImageConversion
+    enum Image: Error {
+        case get
+        case uiToCiConversion
+    }
 }
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -32,18 +36,18 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let infoKey = UIImagePickerController.InfoKey.editedImage
         do{
             guard let userPickedimage = info[infoKey] as? UIImage else {
-                throw ImageClassificationError.getUIImage
+                throw ImageClassificationError.Image.get
             }
             imageView.image = userPickedimage
             guard let ciImage = CIImage(image: userPickedimage) else {
-                throw ImageClassificationError.uIImageToCIImageConversion
+                throw ImageClassificationError.Image.uiToCiConversion
             }
             
             try detect(ciImage)
             
-        } catch ImageClassificationError.getUIImage {
+        } catch ImageClassificationError.Image.get {
             fatalError("Could not take a picture from the camera")
-        } catch ImageClassificationError.uIImageToCIImageConversion {
+        } catch ImageClassificationError.Image.uiToCiConversion {
             fatalError("Could not convert UIImage to CIImage")
         } catch {
             fatalError("Unexpected error: \(error)")

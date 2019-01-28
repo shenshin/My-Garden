@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F18791BD64B012D8AB83635 /* Pods_MyGarden.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3929F595047C5F91ED94F5E /* Pods_MyGarden.framework */; };
 		7875EB4121FF8897006B3E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875EB4021FF8897006B3E2B /* AppDelegate.swift */; };
 		7875EB4321FF8897006B3E2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875EB4221FF8897006B3E2B /* ViewController.swift */; };
 		7875EB4621FF8897006B3E2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7875EB4421FF8897006B3E2B /* Main.storyboard */; };
@@ -24,6 +25,9 @@
 		7875EB4A21FF8898006B3E2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7875EB4C21FF8898006B3E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7875EB5221FF88C6006B3E2B /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
+		A3929F595047C5F91ED94F5E /* Pods_MyGarden.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGarden.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF6AD5B672E597C4C49F9B95 /* Pods-MyGarden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGarden.release.xcconfig"; path = "Target Support Files/Pods-MyGarden/Pods-MyGarden.release.xcconfig"; sourceTree = "<group>"; };
+		F89B73065D201B2EEF1A5F44 /* Pods-MyGarden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGarden.debug.xcconfig"; path = "Target Support Files/Pods-MyGarden/Pods-MyGarden.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F18791BD64B012D8AB83635 /* Pods_MyGarden.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				7875EB3F21FF8897006B3E2B /* MyGarden */,
 				7875EB3E21FF8897006B3E2B /* Products */,
+				FC4941DEBFCE6997432A444C /* Pods */,
+				D821F5FE5D18AF78B3F58C13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = MyGarden;
 			sourceTree = "<group>";
 		};
+		D821F5FE5D18AF78B3F58C13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3929F595047C5F91ED94F5E /* Pods_MyGarden.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC4941DEBFCE6997432A444C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F89B73065D201B2EEF1A5F44 /* Pods-MyGarden.debug.xcconfig */,
+				AF6AD5B672E597C4C49F9B95 /* Pods-MyGarden.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7875EB4F21FF8898006B3E2B /* Build configuration list for PBXNativeTarget "MyGarden" */;
 			buildPhases = (
+				8CFA3F76FAAED37986E1B5E7 /* [CP] Check Pods Manifest.lock */,
 				7875EB3921FF8897006B3E2B /* Sources */,
 				7875EB3A21FF8897006B3E2B /* Frameworks */,
 				7875EB3B21FF8897006B3E2B /* Resources */,
+				025DAC712AFC8406342F4941 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		025DAC712AFC8406342F4941 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyGarden/Pods-MyGarden-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyGarden/Pods-MyGarden-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CFA3F76FAAED37986E1B5E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyGarden-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7875EB3921FF8897006B3E2B /* Sources */ = {
@@ -284,6 +360,7 @@
 		};
 		7875EB5021FF8898006B3E2B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F89B73065D201B2EEF1A5F44 /* Pods-MyGarden.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +379,7 @@
 		};
 		7875EB5121FF8898006B3E2B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF6AD5B672E597C4C49F9B95 /* Pods-MyGarden.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
