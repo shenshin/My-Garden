@@ -56,10 +56,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func detect(_ image: CIImage) throws {
         let model = try VNCoreMLModel(for: flowerClassifier.model)
         let request = VNCoreMLRequest(model: model) { request, error in
-            if let results = request.results as? [VNClassificationObservation] {
-                if let firstAnswer = results.first {
-                    self.navigationItem.title = firstAnswer.identifier
-                }
+            if let classification = request.results?.first as? VNClassificationObservation {
+                self.navigationItem.title = classification.identifier.capitalized
             }
         }
         let handler = VNImageRequestHandler(ciImage: image)
