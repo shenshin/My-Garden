@@ -20,10 +20,14 @@ enum ImageClassificationError: Error {
 }
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
+    
+    
     let imagePicker = UIImagePickerController()
     let flowerClassifier = FlowerClassifier()
     @IBOutlet weak var imageView: UIImageView!
+    
+    //set observation properties and method
+    let wikiAPI = WikiAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +67,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             if let classification = request.results?.first as? VNClassificationObservation {
                 let flowerName = classification.identifier.capitalized
                 self.navigationItem.title = flowerName
-                WikiAPI(flowerName: flowerName).getFlowerInfo{print($0)}
+                
+                self.wikiAPI.flowerName = flowerName
+                self.wikiAPI.getFlowerInfo{print($0)}
             } else {
                 fatalError()
             }

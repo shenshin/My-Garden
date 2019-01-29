@@ -28,12 +28,7 @@ class WikiAPI {
                 ]
         }
     }
-    
-    public var flowerName: String
-    
-    init(flowerName: String){
-        self.flowerName = flowerName
-    }
+    var flowerName: String = ""
     
     public func getFlowerInfo(_ completion: @escaping (String)->Void){
         
@@ -52,11 +47,11 @@ class WikiAPI {
                     completion(plantInfo)
                     
                 } else {
-                    completion("Received an empty response from the Wikipedia server")
+                    print("Received an empty response from the Wikipedia server")
                 }
 
             } else {
-                completion("Error: \(response.result.error.debugDescription)")
+                print("Error: \(response.result.error.debugDescription)")
             }
         }
     }
