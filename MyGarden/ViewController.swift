@@ -61,11 +61,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let model = try VNCoreMLModel(for: flowerClassifier.model)
         let request = VNCoreMLRequest(model: model) { request, error in
             if let classification = request.results?.first as? VNClassificationObservation {
-                self.navigationItem.title = classification.identifier.capitalized
+                let flowerName = classification.identifier.capitalized
+                self.navigationItem.title = flowerName
+                WikiAPI(flowerName: flowerName).getFlowerInfo{print($0)}
+            } else {
+                fatalError()
             }
         }
         let handler = VNImageRequestHandler(ciImage: image)
         try handler.perform([request])
+        
     }
 
     @IBAction func tappedCameraButton(_ sender: UIBarButtonItem) {
